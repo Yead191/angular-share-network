@@ -9,4 +9,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('test-angular');
+  name = "yead"
+  changeTitle() {
+    this.title.set('new title');
+  }
+  changeName() {
+    this.name = "yead1";
+  }
 }

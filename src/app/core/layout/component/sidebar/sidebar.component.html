@@ -1,0 +1,31 @@
+<aside [class.translate-x-0]="layoutService.isMobileMenuOpen()"
+    [class.-translate-x-full]="!layoutService.isMobileMenuOpen()"
+    class="fixed inset-y-0 left-0 z-30 w-72 bg-slate-900 text-white transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col shadow-2xl min-h-screen">
+
+    <div class="flex items-center justify-center h-20 border-b border-slate-800 px-6 gap-3">
+        <div
+            class="flex items-center justify-center w-10 h-10 rounded-xl bg-linear-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30">
+            <mat-icon class="text-white">hub</mat-icon>
+        </div>
+        <span
+            class="text-xl font-bold tracking-wide bg-clip-text text-transparent bg-linear-to-r from-white to-slate-300">
+            Share Network
+        </span>
+    </div>
+
+    <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+        <div class="px-2 mb-4 text-xs font-semibold tracking-wider text-slate-500 uppercase">
+            {{ layoutService.currentRole() }} Dashboard
+        </div>
+
+        @for (item of activeMenu(); track item.path) {
+        <a [routerLink]="item.path" (click)="layoutService.closeMobileMenu()"
+            routerLinkActive="bg-indigo-600 !text-white shadow-lg shadow-indigo-600/20 font-semibold"
+            class="flex items-center gap-4 px-4 py-3.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/70 transition-all duration-200 outline-none"
+            matRipple>
+            <mat-icon class="opacity-90">{{ item.icon }}</mat-icon>
+            <span class="text-sm tracking-wide">{{ item.label }}</span>
+        </a>
+        }
+    </nav>
+</aside>

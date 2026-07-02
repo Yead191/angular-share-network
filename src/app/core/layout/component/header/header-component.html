@@ -1,0 +1,37 @@
+<header class="flex items-center justify-between h-20 px-6 bg-white border-b border-gray-200 z-10 shadow-sm w-full">
+    <div class="flex items-center gap-4">
+        <!-- Trigger Mobile Menu -->
+        <button mat-icon-button class="lg:hidden text-slate-600" (click)="layoutService.toggleMobileMenu()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <div
+            class="hidden md:flex items-center bg-gray-100 rounded-full px-4 py-2 w-72 focus-within:ring-2 focus-within:ring-indigo-100 transition-all">
+            <mat-icon class="text-gray-400 text-sm">search</mat-icon>
+            <input type="text" placeholder="Search..."
+                class="bg-transparent border-none outline-none ml-2 text-sm w-full text-slate-700">
+        </div>
+    </div>
+
+    <div class="flex items-center gap-2 md:gap-4">
+        <!-- Dev Switcher -->
+        <div class="hidden sm:flex bg-gray-100 rounded-lg p-1 mr-2">
+            <button (click)="layoutService.setRole('student')"
+                [class.bg-white]="layoutService.currentRole() === 'student'"
+                class="px-3 py-1 text-xs font-medium rounded-md text-slate-600">Student</button>
+            <button (click)="layoutService.setRole('mentor')"
+                [class.bg-white]="layoutService.currentRole() === 'mentor'"
+                class="px-3 py-1 text-xs font-medium rounded-md text-slate-600">Mentor</button>
+        </div>
+
+        <!-- User Profile -->
+        <button mat-button [matMenuTriggerFor]="profileMenu"
+            class="rounded-full! px-2! py-1! flex! items-center! gap-2!">
+            <img src="https://ui-avatars.com/api/?name=User&background=6366f1&color=fff" class="w-8 h-8 rounded-full">
+        </button>
+
+        <mat-menu #profileMenu="matMenu">
+            <button mat-menu-item><mat-icon>logout</mat-icon><span>Logout</span></button>
+        </mat-menu>
+    </div>
+</header>

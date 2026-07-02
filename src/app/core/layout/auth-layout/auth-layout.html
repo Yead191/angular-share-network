@@ -1,0 +1,59 @@
+<div class="flex min-h-screen w-full bg-white font-sans">
+
+    <!-- Left Side: Branding & Visuals (Hidden on small screens) -->
+    <div class="hidden lg:flex relative w-1/2 bg-slate-900 overflow-hidden flex-col justify-between p-12">
+        <!-- Abstract Background Gradients -->
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-600/30 blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/20 blur-[120px]">
+        </div>
+
+        <!-- Brand Logo -->
+        <div class="relative z-10 flex items-center gap-3">
+            <div
+                class="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30">
+                <mat-icon class="text-white text-3xl h-8 w-8 leading-8">hub</mat-icon>
+            </div>
+            <span class="text-2xl font-bold tracking-wide text-white">
+                Share Network
+            </span>
+        </div>
+
+        <!-- Hero Content & Social Proof -->
+        <div class="relative z-10 max-w-lg">
+            <h1 class="text-4xl font-extrabold text-white leading-tight mb-6">
+                Empowering the next generation of <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">learners &
+                    mentors.</span>
+            </h1>
+            <p class="text-slate-400 text-lg mb-10 leading-relaxed">
+                Join a thriving community where knowledge flows freely. Connect, track progress, and achieve your goals
+                together.
+            </p>
+
+            <!-- Glassmorphic Testimonial Card -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                <div class="flex items-center gap-4 mb-4">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+J&background=random" class="w-12 h-12 rounded-full"
+                        alt="User">
+                    <div>
+                        <h4 class="text-white font-semibold">Sarah Jenkins</h4>
+                        <p class="text-slate-400 text-sm">Senior Mentor</p>
+                    </div>
+                </div>
+                <p class="text-slate-300 italic text-sm">
+                    "Share Network has completely transformed how I organize my classes and connect with my students. It
+                    is beautifully seamless."
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side: Forms Outlet -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 bg-gray-50/50">
+        <div class="w-full max-w-md">
+            <!-- The Login/Register pages will be injected here -->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div>
