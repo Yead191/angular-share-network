@@ -1,0 +1,71 @@
+<section class="animate-fade-in pb-8">
+    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden mx-auto">
+        <div class="p-6 md:p-8">
+
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-2xl font-bold text-slate-900">Time Tracking</h1>
+                <button mat-flat-button color="primary" (click)="openAddModal()"
+                    class="!h-11 !rounded-xl !bg-indigo-600 !shadow-md !shadow-indigo-600/20">
+                    <mat-icon>add</mat-icon> Log Time Track
+                </button>
+            </div>
+
+            <!-- Premium Tailwind Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr
+                            class="bg-slate-50 border-b border-slate-100 text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                            <th class="p-4 rounded-tl-xl">Time Type</th>
+                            <th class="p-4">Student</th>
+                            <th class="p-4">Start Time</th>
+                            <th class="p-4">Hours</th>
+                            <th class="p-4">Comments</th>
+                            <th class="p-4 text-center rounded-tr-xl">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        @for (track of timeTracking(); track track._id) {
+                        <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition-colors group">
+                            <td class="p-4 font-semibold text-slate-800">{{ track.timeType }}</td>
+                            <td class="p-4 text-slate-600">
+                                {{ track.studentId ? track.studentId.firstName + ' ' + track.studentId.lastName : 'N/A'
+                                }}
+                            </td>
+                            <td class="p-4 text-slate-600">{{ track.startTime | date:'MMM dd, yyyy hh:mm a' }}</td>
+                            <td class="p-4 font-medium text-slate-800">{{ track.spentHours }} hrs</td>
+                            <td class="p-4 text-slate-500 italic truncate max-w-[200px]">
+                                {{ track.comments || 'N/A' }}
+                            </td>
+                            <td class="p-4 text-center">
+                                <button mat-icon-button [matMenuTriggerFor]="menu"
+                                    class="text-slate-400 group-hover:text-slate-600">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu" class="!rounded-xl">
+                                    <button mat-menu-item (click)="openViewModal(track)">
+                                        <mat-icon class="text-slate-500">visibility</mat-icon> View Details
+                                    </button>
+                                    <button mat-menu-item (click)="openEditModal(track)">
+                                        <mat-icon class="text-slate-500">edit</mat-icon> Edit Time Track
+                                    </button>
+                                    <button mat-menu-item (click)="deleteRecord(track._id)" class="!text-red-500">
+                                        <mat-icon class="text-red-500">delete</mat-icon> Delete
+                                    </button>
+                                </mat-menu>
+                            </td>
+                        </tr>
+                        }
+                        @empty {
+                        <tr>
+                            <td colspan="6" class="p-8 text-center text-slate-500">No time tracking records found.</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</section>

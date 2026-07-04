@@ -6,7 +6,7 @@ export interface NavItem {
 
 export const MENTOR_MENU: NavItem[] = [
     { label: 'Overview', path: 'overview', icon: 'dashboard' },
-    { label: 'Students', path: 'students', icon: 'groups' },
+    { label: 'My Student', path: 'my-student', icon: 'groups' },
     { label: 'Time Tracking', path: 'time-tracking', icon: 'schedule' },
     { label: 'Schedule', path: 'schedule', icon: 'calendar_month' },
     { label: 'Resources', path: 'resources', icon: 'folder_open' },

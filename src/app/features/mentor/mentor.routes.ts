@@ -15,6 +15,10 @@ export const MentorRoutes: Routes = [
                 path: "overview",
                 loadComponent: () => import("./pages/overview/overview.component").then(m => m.OverviewComponent)
             },
+            {
+                path: "my-student",
+                loadComponent: () => import("./pages/my-student/my-student.component").then(m => m.MyStudentComponent)
+            }
         ]
     }
 ]

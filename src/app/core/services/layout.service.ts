@@ -4,7 +4,7 @@ import { Injectable, signal } from "@angular/core";
 
 export class LayoutService {
     isMobileMenuOpen = signal<boolean>(false);
-    currentRole = signal<string>('student'); // student, mentor, admin
+    currentRole = signal<string>('mentor'); // student, mentor, admin
     toggleMobileMenu(): void {
         this.isMobileMenuOpen.update((value) => !value);
     }
