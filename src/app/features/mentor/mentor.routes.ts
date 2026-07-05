@@ -18,6 +18,10 @@ export const MentorRoutes: Routes = [
             {
                 path: "my-student",
                 loadComponent: () => import("./pages/my-student/my-student.component").then(m => m.MyStudentComponent)
+            },
+            {
+                path: "time-tracking",
+                loadComponent: () => import("./pages/time-tracking/time-tracking.component").then(m => m.TimeTrackingComponent) 
             }
         ]
     }
